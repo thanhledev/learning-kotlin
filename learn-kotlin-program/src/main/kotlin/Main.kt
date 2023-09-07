@@ -105,15 +105,139 @@ fun KotlinStatement() {
     val currentHour = readln().toInt()
 
     when(currentHour) {
-        6,7,8,9,10,11,12 -> println("Good morning!")
+        6,7,8,9,10,11,12 -> {
+            println("Good morning!")
+            println("Have a good breakfast.")
+        }
         13,14,15,16,17,18 -> println("Good afternoon!")
         19,20,21,22,23,0,1,2,3,4,5 -> println("Good evening!")
         else -> println("Invalid time")
     }
 }
 
+fun KotlinNullable() {
+    print("Enter a string: ")
+    var text: String? = readlnOrNull()
+    // surrounding by null check
+    if (text != null) {
+        println("text length is: ${text.length}")
+    } else {
+        println("You have entered null value.")
+    }
+    print("Enter another string: ")
+    var newText: String? = readlnOrNull()
+    println("newText length is: ${newText?.length}")
+
+    print("Enter basedText string: ")
+    var basedText: String = readln()
+    val someText = if (basedText.length > 0) basedText else "basedText is empty or null."
+    println("someText value is $someText")
+}
+
+// basic void function with parameters
+fun sayHello(name: String, age: Int) {
+    println("Hello $name! Your age is $age")
+}
+
+// basic return type function
+fun getMax(a: Int, b: Int): Int {
+    return if (a > b) a else b
+}
+
+// function overloading: same name but with different parameter types (aka signatures)
+fun getMax(a: Double, b: Double): Double {
+    return if (a > b) a else b
+}
+
+fun sendMessage(name: String, message: String = "Default message") {
+    println("Send '$message' to $name")
+}
+
+// vararg keyword
+fun badSum(a: Int, b: Int, c: Int, d: Int): Int {
+    return a + b + c + d
+}
+
+fun sum(vararg numbers: Int): Int {
+    var result = 0
+    for (n in numbers) result += n
+    return result
+}
+
+fun kotlinForLoop() {
+    println("For-loop examples")
+    // upward
+    for (i in 1 until 10)
+        println("i is $i")
+
+    // downward
+    for (j in 10 downTo 1)
+        println("j is $j")
+
+    // only odd numbers => using step
+    // until is excluded ( < ), .. is included ( <= )
+    println("The odd numbers from 1 to 10 are: ")
+    for (k in 1 .. 10 step 2)
+        print("$k ")
+    println("")
+}
+
+fun kotlinWhileLoop() {
+    println("while-loop example")
+    var number = 0
+    while (number < 10) {
+        println("number is $number")
+        number++
+    }
+
+    println("while-loop with break example")
+    var decreNum = 10
+    outer@ while (decreNum > 0) {
+        if (decreNum == 3) break@outer
+        println("*** decreNum = $decreNum")
+        decreNum--
+    }
+
+    println("do-while-loop example")
+    var decreNum2 = 10
+    do {
+        println("*** decreNum2 = $decreNum2")
+        decreNum2--
+    } while (decreNum2 >= 3)
+
+    println("")
+}
+
+fun kotlinArray() {
+
+}
+
 fun main(args: Array<String>) {
     //KotlinPrimitiveTypes()
     //KotlinOperators()
-    KotlinStatement()
+    //KotlinStatement()
+    //KotlinNullable()
+    /*
+    sayHello("Thanh", 36)
+    val x = 12
+    val y = 11
+    println("The maximum number between $x and $y is ${getMax(x, y)}")
+
+    val a = 1.4
+    val b = 22.2
+    println("The maximum number between $a and $b is ${getMax(a, b)}")
+
+    val userName = "Thanh Le"
+    val message = "Good morning"
+    sendMessage(userName, message)
+    // using default value in function parameter definition
+    sendMessage(userName)
+
+    // using varArg
+    println(sum(1,2,3,4,5,6,7,8,9,10))
+    // for loop
+    kotlinForLoop()
+    // while loop
+    kotlinWhileLoop()
+    */
 }
