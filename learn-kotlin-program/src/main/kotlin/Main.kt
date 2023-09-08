@@ -209,7 +209,8 @@ fun kotlinWhileLoop() {
 }
 
 fun kotlinArray() {
-
+    val names: Array<String> = arrayOf("Jack", "John", "Dave")
+    println("First name: ${names[0]}")
 }
 
 fun main(args: Array<String>) {
@@ -240,4 +241,6 @@ fun main(args: Array<String>) {
     // while loop
     kotlinWhileLoop()
     */
+    // array example
+    kotlinArray()
 }
