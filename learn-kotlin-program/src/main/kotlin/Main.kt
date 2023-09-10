@@ -208,10 +208,45 @@ fun kotlinWhileLoop() {
     println("")
 }
 
+fun findMinMax(arr: Array<Int>, order: Boolean = true): Int {
+    var searchResult: Int = arr[0]
+    if (order) {
+        for (n in arr) {
+            if (n > searchResult) {
+                searchResult = n
+            }
+        }
+    } else {
+        for (n in arr) {
+            if (n < searchResult) {
+                searchResult = n
+            }
+        }
+    }
+
+    return searchResult
+}
+
 fun kotlinArray() {
     val names: Array<String> = arrayOf("Jack", "John", "Dave")
     println("First name: ${names[0]}")
+    // edit element in array
+    println("Second name: ${names[1]}")
+    names[1] = "Mary"
+    println("Second name: ${names[1]}")
+
+    val mixTypes = arrayOf("name 1", 4, 2, 4, 5, true)
+
+    for (elm in mixTypes) {
+        println("elm: $elm")
+    }
+
+    val numbers = arrayOf(20,34,11,21,100,60,87)
+    val minValue = findMinMax(numbers, false)
+    val maxValue = findMinMax(numbers)
+    println("array numbers => minValue = $minValue, maxValue = $maxValue")
 }
+
 
 fun main(args: Array<String>) {
     //KotlinPrimitiveTypes()
