@@ -277,5 +277,10 @@ fun main(args: Array<String>) {
     kotlinWhileLoop()
     */
     // array example
-    kotlinArray()
+    // kotlinArray()
+
+    // OOP examples
+    val myCar = Car(name = "Tesla", "S", "white", 4)
+    myCar.move()
+    myCar.brake()
 }
