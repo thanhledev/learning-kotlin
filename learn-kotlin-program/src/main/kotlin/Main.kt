@@ -280,7 +280,27 @@ fun main(args: Array<String>) {
     // kotlinArray()
 
     // OOP examples
-    val myCar = Car(name = "Tesla", "S", "white", 4)
+    /*val myCar = Car(name = "Tesla", "S", "white", 4)
     myCar.move()
     myCar.brake()
+
+    val thanhle = User(name = "Thanh", lastName = "Le", 36)
+    thanhle.description()
+    val marcel = User(name = "Marcel")
+    marcel.description()
+    val christian = User(name = "Sith", "Lord")
+    christian.description()
+
+    val newStudent = Student("Sith", "Lord")
+    println("newStudent:${newStudent.firstName}, LastName: ${newStudent.lastName}, age: ${newStudent.age}")
+    newStudent.firstName = "Jack"
+    println("newStudent:${newStudent.firstName}, LastName: ${newStudent.lastName}, age: ${newStudent.age}")*/
+
+    // OOP - Companion object === Java static method
+    // val calculator = Calculator()
+    // println("5 + 3 = ${Calculator.sum(5,3)}")
+
+    // OOP - Singleton pattern
+    val db = Database.getInstance()
+    println(db)
 }
