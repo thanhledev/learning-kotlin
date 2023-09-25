@@ -353,13 +353,22 @@ fun main(args: Array<String>) {
 
     println("Jack current balance is $${jackAcc.calculateBalance()}")*/
 
-    // OOP Inheritance
-    val ice = Train("ICE train", "white", 1, 20)
+    // OOP Inheritance - 1
+    /*val ice = Train("ICE train", "white", 1, 20)
     val a380 = Plane("Airbus A380", "blue", 4, 16)
 
     ice.move()
     a380.move()
 
     ice.stop()
-    a380.stop()
+    a380.stop()*/
+
+    // OOP Inheritance - 2
+    /*val view = View()
+    val button = Button("button", "top")
+    val roundButton = RoundButton("round button", "right", 4)
+
+    view.draw()
+    button.draw()
+    roundButton.draw()*/
 }
