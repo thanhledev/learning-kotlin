@@ -1,3 +1,5 @@
+import Result
+import java.text.ParseException
 import java.util.*
 
 fun KotlinPrimitiveTypes() {
@@ -371,4 +373,18 @@ fun main(args: Array<String>) {
     view.draw()
     button.draw()
     roundButton.draw()*/
+
+    val successResult = Result.Success("Success!!!")
+    val failedResult = Result.Error.RecoverableError(java.text.ParseException("1", 1), "parse-exception")
+
+    getSealedClassData(successResult)
+}
+
+fun getSealedClassData(result: Result) {
+    when(result) {
+        is Result.Error.RecoverableError -> result.showMessage()
+        is Result.Error.NonRecoverableError -> result.showMessage()
+        is Result.Success -> result.showMessage()
+        is Result.Progress -> result.showMessage()
+    }
 }
