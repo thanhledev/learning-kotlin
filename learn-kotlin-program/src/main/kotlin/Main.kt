@@ -1,3 +1,4 @@
+import java.util.*
 
 fun KotlinPrimitiveTypes() {
     // Static variable => val, otherwise var
@@ -297,10 +298,58 @@ fun main(args: Array<String>) {
     println("newStudent:${newStudent.firstName}, LastName: ${newStudent.lastName}, age: ${newStudent.age}")*/
 
     // OOP - Companion object === Java static method
+
     // val calculator = Calculator()
     // println("5 + 3 = ${Calculator.sum(5,3)}")
 
-    // OOP - Singleton pattern
-    val db = Database.getInstance()
-    println(db)
+    // OOP - Singleton pattern using data class
+
+    // val db1 = Database.getInstance()
+    // val db2 = Database.getInstance()
+    // println("db1 object Id: $db1")
+    // println("db2 object Id: $db2")
+
+    // OOP - Singleton pattern using object
+
+    // preferably use with thread-safe
+    // println(DatabaseObj)
+    // println(DatabaseObj)
+
+    // Lazy initialization
+
+    //val user1 = UserLazy("Alex", "Dobbin", 23)
+    //val user2 by lazy {
+    //    UserLazy("Lazy", "User", 10)
+    //}
+    // only when uncomment this line then user2 was initialized
+    // println(user2.firstName)
+
+    // Enum
+    /*for (direction in Direction.values()) {
+        println("${direction.name}: ${direction.dir} - distance: ${direction.distance}")
+        println("Using enum function:")
+        direction.printData()
+    }
+
+    val myDirection = Direction.valueOf("east".uppercase(Locale.getDefault()))
+
+    when (myDirection) {
+        Direction.NORTH -> println("I want to go north")
+        Direction.SOUTH -> println("I want to go south")
+        Direction.EAST -> println("I want to go east")
+        Direction.WEST -> println("I want to go west")
+    }*/
+
+    // Inner class
+    val listView = ListView(arrayOf("Name 1", "Name 2", "Name 3", "Name 4"))
+    listView.ListViewItem().displayItem(2)
+
+    // OOP Challenge
+    var jackAcc = Account("Jack")
+    jackAcc.deposit(1000)
+    jackAcc.withdraw(500)
+    jackAcc.deposit(-200)
+    jackAcc.withdraw(2000)
+
+    println("Jack current balance is $${jackAcc.calculateBalance()}")
 }
