@@ -341,7 +341,7 @@ fun main(args: Array<String>) {
     }*/
 
     // Inner class
-    val listView = ListView(arrayOf("Name 1", "Name 2", "Name 3", "Name 4"))
+    /*val listView = ListView(arrayOf("Name 1", "Name 2", "Name 3", "Name 4"))
     listView.ListViewItem().displayItem(2)
 
     // OOP Challenge
@@ -351,5 +351,15 @@ fun main(args: Array<String>) {
     jackAcc.deposit(-200)
     jackAcc.withdraw(2000)
 
-    println("Jack current balance is $${jackAcc.calculateBalance()}")
+    println("Jack current balance is $${jackAcc.calculateBalance()}")*/
+
+    // OOP Inheritance
+    val ice = Train("ICE train", "white", 1, 20)
+    val a380 = Plane("Airbus A380", "blue", 4, 16)
+
+    ice.move()
+    a380.move()
+
+    ice.stop()
+    a380.stop()
 }
