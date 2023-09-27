@@ -408,12 +408,27 @@ fun main(args: Array<String>) {
     val userFirstName = userDelegate.firstName
     val userLastName = userDelegate.lastName*/
 
-    val names = mutableListOf("Name 1", "Name 2", "Name 3")
+    // List
+    /*val names = mutableListOf("Name 1", "Name 2", "Name 3")
 
     names.add("Name 4")
     showList(names)
     names.reverse()
-    showList(names)
+    showList(names)*/
+
+    val user1 = User("name 1", "lastname 1", 0)
+    val user2 = User("name 2", "lastname 1", 0)
+    val user3 = User("name 3", "lastname 1", 0)
+    val user4 = User("name 4", "lastname 1", 0)
+    val user5 = User("name 5", "lastname 1", 0)
+    val user6 = User("name 6", "lastname 1", 0)
+    val user7 = User("name 6", "lastname 1", 0)
+
+    // users set has duplication of user6 and user7 because class use the equals function
+    // solution? => change to data class User
+    val users = mutableSetOf(user1, user2, user3, user4, user5, user6, user7)
+
+    users.forEach { println(it) }
 }
 
 fun getSealedClassData(result: Result) {

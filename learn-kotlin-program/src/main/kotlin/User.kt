@@ -9,4 +9,8 @@ class User(var name: String, var lastName: String = "LastName", var age: Int = 0
     fun description() {
         println("User: $name, $lastName. Age: $age")
     }
+
+    override fun toString(): String {
+        return "User: $name, $lastName. Age: $age"
+    }
 }
