@@ -1,4 +1,4 @@
-class Car(name: String, var model: String, var color: String, var doors: Int) {
+class Car(name: String, var model: String, var color: String, var doors: Int): Engine {
     lateinit var name: String
 
     init {
@@ -16,5 +16,9 @@ class Car(name: String, var model: String, var color: String, var doors: Int) {
 
     fun brake() {
         println("The car $name has been stopped...")
+    }
+
+    override fun startEngine() {
+        TODO("Not yet implemented")
     }
 }
