@@ -1,6 +1,7 @@
 import Result
 import java.text.ParseException
 import java.util.*
+import kotlin.reflect.full.memberProperties
 
 fun KotlinPrimitiveTypes() {
     // Static variable => val, otherwise var
@@ -399,14 +400,20 @@ fun main(args: Array<String>) {
 
     // OOP Delegation - Property delegate
     // Checkout Delegate, UserPropertyDelegate classes
-    var userDelegate = UserPropertyDelegate().apply {
+    /*var userDelegate = UserPropertyDelegate().apply {
         firstName = "John"
         lastName = "Doe"
     }
 
     val userFirstName = userDelegate.firstName
-    val userLastName = userDelegate.lastName
+    val userLastName = userDelegate.lastName*/
 
+    val names = mutableListOf("Name 1", "Name 2", "Name 3")
+
+    names.add("Name 4")
+    showList(names)
+    names.reverse()
+    showList(names)
 }
 
 fun getSealedClassData(result: Result) {
@@ -415,5 +422,12 @@ fun getSealedClassData(result: Result) {
         is Result.Error.NonRecoverableError -> result.showMessage()
         is Result.Success -> result.showMessage()
         is Result.Progress -> result.showMessage()
+    }
+}
+
+fun showList(names: MutableList<String>) {
+    println("Show elements of names: ")
+    names.forEach{
+        println(it)
     }
 }
