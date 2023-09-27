@@ -374,10 +374,25 @@ fun main(args: Array<String>) {
     button.draw()
     roundButton.draw()*/
 
-    val successResult = Result.Success("Success!!!")
+    // OOP sealed class
+    /*val successResult = Result.Success("Success!!!")
     val failedResult = Result.Error.RecoverableError(java.text.ParseException("1", 1), "parse-exception")
 
-    getSealedClassData(successResult)
+    getSealedClassData(successResult)*/
+
+    // OOP Interface 2 && Object expression
+    /*val onClickListener = ClickListener()
+
+    val loginButton = AndroidButton("Login", 211, onClickListener)
+    val signUpButton = AndroidButton("Sign Up", 222, object : OnClickListener {
+        override fun onClick() {
+            TODO("Not yet implemented")
+        }
+    })*/
+
+    // OOP Delegation - Interface
+    // Check out Software Interface, ProprietarySoftware, FreeSoftware, and WordProcessor classes
+
 }
 
 fun getSealedClassData(result: Result) {
