@@ -390,8 +390,22 @@ fun main(args: Array<String>) {
         }
     })*/
 
-    // OOP Delegation - Interface
+    // OOP Delegation - Class delegation
+    // Read more: https://blog.devgenius.io/a-gentle-introduction-to-delegation-in-kotlin-a1c4f19ec589
     // Check out Software Interface, ProprietarySoftware, FreeSoftware, and WordProcessor classes
+
+    // OOP Delegation - using by keyword
+    // Check out WordProcessorV2 class
+
+    // OOP Delegation - Property delegate
+    // Checkout Delegate, UserPropertyDelegate classes
+    var userDelegate = UserPropertyDelegate().apply {
+        firstName = "John"
+        lastName = "Doe"
+    }
+
+    val userFirstName = userDelegate.firstName
+    val userLastName = userDelegate.lastName
 
 }
 
