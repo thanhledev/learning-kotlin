@@ -416,7 +416,8 @@ fun main(args: Array<String>) {
     names.reverse()
     showList(names)*/
 
-    val user1 = User("name 1", "lastname 1", 0)
+    // Set
+    /*val user1 = User("name 1", "lastname 1", 0)
     val user2 = User("name 2", "lastname 1", 0)
     val user3 = User("name 3", "lastname 1", 0)
     val user4 = User("name 4", "lastname 1", 0)
@@ -428,7 +429,15 @@ fun main(args: Array<String>) {
     // solution? => change to data class User
     val users = mutableSetOf(user1, user2, user3, user4, user5, user6, user7)
 
-    users.forEach { println(it) }
+    users.forEach { println(it) }*/
+
+    // Map
+    val users = mutableMapOf<Int, String>(1 to "Maria", 2 to "Alex", 3 to "John")
+    users[5] = "Vlad"
+    println("users maps elements: $users")
+    println("Remove element has key=2")
+    users.remove(2)
+    users.forEach { i, s -> println("$i -> $s") }
 }
 
 fun getSealedClassData(result: Result) {
