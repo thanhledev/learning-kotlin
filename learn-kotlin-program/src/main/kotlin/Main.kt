@@ -432,12 +432,20 @@ fun main(args: Array<String>) {
     users.forEach { println(it) }*/
 
     // Map
-    val users = mutableMapOf<Int, String>(1 to "Maria", 2 to "Alex", 3 to "John")
+    /*val users = mutableMapOf<Int, String>(1 to "Maria", 2 to "Alex", 3 to "John")
     users[5] = "Vlad"
     println("users maps elements: $users")
     println("Remove element has key=2")
     users.remove(2)
-    users.forEach { i, s -> println("$i -> $s") }
+    users.forEach { i, s -> println("$i -> $s") }*/
+
+    // Mapping
+    val numbers = setOf(1,2,3,4,5)
+    println(numbers.map { if (it == 2) it * 100 else it * 10 })
+
+    val numbersMap = mapOf("key 1" to 1, "key 2" to 2, "key 3" to 3, "key 4" to 4)
+    println(numbersMap.mapKeys { it.key.uppercase(Locale.getDefault()) })
+    println(numbersMap.mapValues { it.value + it.key.length })
 }
 
 fun getSealedClassData(result: Result) {
