@@ -467,6 +467,26 @@ fun main(args: Array<String>) {
     val myList = myPair.toList()
     println(myPair)
     println(myList)
+
+    // Associate
+    println(colors.associateWith { it.length })
+    println(animals.associateBy { it.first().uppercase() })
+    println(animals.associateBy(keySelector = {it.first().uppercase()}, valueTransform = {it.length}))
+
+    // Flatten
+    val numberSets = listOf(setOf(1,2,3), setOf(4,5,6), setOf(7,8,9))
+    for (numberSet in numberSets) {
+        for (number in numberSet) {
+            print("$number ")
+        }
+        println()
+    }
+
+    println("Flattening list")
+    val numberSetsFlatten = numberSets.flatten()
+    for (ele in numberSetsFlatten) {
+        print("$ele ")
+    }
 }
 
 fun getSealedClassData(result: Result) {
