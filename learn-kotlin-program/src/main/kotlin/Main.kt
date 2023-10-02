@@ -452,13 +452,21 @@ fun main(args: Array<String>) {
     val animals = listOf("fox", "bear", "wolf")
     // => create pairs
     println(colors.zip(animals))
+    println(colors.zip(animals) { color, animal -> "The ${animal.replaceFirstChar { it.uppercase() }} is color $color" })
 
     // Pair => https://www.geeksforgeeks.org/pair-in-kotlin/
     val (x,y) = Pair(1, "Geeks")
     println(x)
     println(y)
 
+    // pair properties
+    val myPair = Pair("Hello Geeks", "This is Kotlin tutorial")
+    println(myPair.first)
+    println(myPair.second)
 
+    val myList = myPair.toList()
+    println(myPair)
+    println(myList)
 }
 
 fun getSealedClassData(result: Result) {
