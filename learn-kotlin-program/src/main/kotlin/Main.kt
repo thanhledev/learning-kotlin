@@ -475,6 +475,7 @@ fun main(args: Array<String>) {
 
     // Flatten
     val numberSets = listOf(setOf(1,2,3), setOf(4,5,6), setOf(7,8,9))
+    println("Not flattening list")
     for (numberSet in numberSets) {
         for (number in numberSet) {
             print("$number ")
@@ -487,6 +488,14 @@ fun main(args: Array<String>) {
     for (ele in numberSetsFlatten) {
         print("$ele ")
     }
+    println("")
+
+    // String representations
+    val numberStrings = listOf("one", "two", "three", "four")
+    println(numberStrings.joinToString(separator = " | ", prefix = "start: ", postfix = ": end"))
+
+    val numberRange = (1 .. 100).toList()
+    println("numberRange: ${numberRange.joinToString(limit = 20, truncated = "<...>")}")
 }
 
 fun getSealedClassData(result: Result) {
