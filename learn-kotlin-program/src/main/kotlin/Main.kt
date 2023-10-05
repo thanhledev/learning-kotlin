@@ -491,7 +491,7 @@ fun main(args: Array<String>) {
     println("")
 
     // String representations
-    val numberStrings = listOf("one", "two", "three", "four")
+    val numberStrings = listOf("one", "two", "three", "four", "five", "six", "seven")
     println(numberStrings.joinToString(separator = " | ", prefix = "start: ", postfix = ": end"))
 
     val numberRange = (1 .. 100).toList()
@@ -519,9 +519,23 @@ fun main(args: Array<String>) {
     println("Partition: match=$match, rest=$rest")
 
     // test predicates
+    println("Test predicates...")
     println("Any ends with e? ${numberStrings.any { it.endsWith("e") }}")
     println("None ends with w? ${numberStrings.none { it.endsWith("w")}}")
     println("All have length more than 1? ${numberStrings.all { it.length > 1 }}")
+
+    // Retrieving single element
+
+    // Retrieving collection parts
+    println("Slicing...")
+    println(numberStrings.slice(1..3))
+    println(numberStrings.slice(0..4 step 2))
+
+    println("Taking...")
+    println("Take-3: ${numberStrings.take(3)}")
+    println("TakeLast-3: ${numberStrings.takeLast(3)}")
+    println("TakeWhile: ${numberStrings.takeWhile { !it.startsWith("f") }}")
+    println("Drop: ${numberStrings.drop(1)}")
 }
 
 fun getSealedClassData(result: Result) {
