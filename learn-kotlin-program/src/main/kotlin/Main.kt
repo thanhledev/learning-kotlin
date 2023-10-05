@@ -496,6 +496,32 @@ fun main(args: Array<String>) {
 
     val numberRange = (1 .. 100).toList()
     println("numberRange: ${numberRange.joinToString(limit = 20, truncated = "<...>")}")
+
+    // Filtering
+    val longerThanThreeCharacter = numberStrings.filter { it.length > 3 }
+    println("Numbers have more than 3 characters: $longerThanThreeCharacter")
+
+    val numbersMap = mapOf("key 1" to 1, "key 2" to 2, "key 3" to 3, "key 101" to 101)
+    val filterNumbersMap = numbersMap.filter { it.key.endsWith("1") && it.value > 100 }
+    println("filterNumbersMap: $filterNumbersMap")
+
+    val filteredIdx = numberStrings.filterIndexed { index, value -> index != 0 && value.length < 5 }
+    println("filteredIdx: $filteredIdx")
+    val filteredNot = numberStrings.filterNot { it.length <= 3 }
+    println("filteredNot: $filteredNot")
+
+    // mixedList
+    val mixedList = listOf(1,3,2,'A','B','C',"Hello World","Alex", false, true)
+    mixedList.filterIsInstance<Int>().forEach { println(it) }
+
+    // Partition
+    val (match, rest) = numberStrings.partition { it.length > 3 }
+    println("Partition: match=$match, rest=$rest")
+
+    // test predicates
+    println("Any ends with e? ${numberStrings.any { it.endsWith("e") }}")
+    println("None ends with w? ${numberStrings.none { it.endsWith("w")}}")
+    println("All have length more than 1? ${numberStrings.all { it.length > 1 }}")
 }
 
 fun getSealedClassData(result: Result) {
