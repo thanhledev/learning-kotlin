@@ -1,5 +1,7 @@
 import Result
 import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.*
 import kotlin.reflect.full.memberProperties
 
@@ -536,6 +538,31 @@ fun main(args: Array<String>) {
     println("TakeLast-3: ${numberStrings.takeLast(3)}")
     println("TakeWhile: ${numberStrings.takeWhile { !it.startsWith("f") }}")
     println("Drop: ${numberStrings.drop(1)}")
+
+    // Comparable and Comparator
+    val numbers = mutableListOf(10,23,16,9,43,70,34,11)
+    println("Sorted numbers: ${numbers.sorted()}")
+
+    // working with datetime https://stackoverflow.com/questions/57402045/how-to-format-in-kotlin-date-in-string-or-timestamp-to-my-preferred-format
+    val dateFormat_yyyyMMdd = SimpleDateFormat(
+        "yyyy-MM-dd", Locale.ENGLISH
+    )
+    val laptops = mutableListOf<Laptop>(
+        Laptop("Lenovo Yoga 2023", 16, dateFormat_yyyyMMdd.parse("2023-01-01"), 1600.00),
+        Laptop("MacPro 2022", 8, dateFormat_yyyyMMdd.parse("2022-01-01"), 1999.00),
+        Laptop("Dell XP 2021", 32, dateFormat_yyyyMMdd.parse("2021-01-01"), 1799.00)
+    )
+
+    println("Sort laptops by price (high to low):")
+    laptops.sortedDescending().forEach { println(it) }
+    println("Sort laptops by memory:")
+    laptops.sortedWith(ComparatorRam()).forEach { println(it) }
+    println("Sort laptops by year of released:")
+    laptops.sortedWith(ComparatorYear()).forEach { println(it) }
+
+    // sortBy = without Comparator
+    println("Sort laptops by ram (high to low) without comparator:")
+    laptops.sortedByDescending { it.ram }.forEach { println(it) }
 }
 
 fun getSealedClassData(result: Result) {
