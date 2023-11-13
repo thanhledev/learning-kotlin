@@ -563,6 +563,23 @@ fun main(args: Array<String>) {
     // sortBy = without Comparator
     println("Sort laptops by ram (high to low) without comparator:")
     laptops.sortedByDescending { it.ram }.forEach { println(it) }
+
+    // generics
+    val footballPlayer1 = FootballPlayer("Jack")
+    val footballPlayer2 = FootballPlayer("Dave")
+
+    val footballTeam = Team<FootballPlayer>("Team 1", mutableListOf())
+    footballTeam.addPlayer(footballPlayer1)
+    footballTeam.addPlayer(footballPlayer2)
+    footballTeam.addPlayer(footballPlayer1)
+
+    val baseballPlayer1 = BaseballPlayer("Nolan")
+    val baseballPlayer2 = BaseballPlayer("Nick")
+
+    val baseballTeam = Team<BaseballPlayer>("Team 2", mutableListOf(baseballPlayer2))
+    baseballTeam.addPlayer(baseballPlayer1)
+    // error because type mismatch
+    // baseballTeam.addPlayer(footballPlayer1)
 }
 
 fun getSealedClassData(result: Result) {
