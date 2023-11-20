@@ -5,21 +5,25 @@ import kotlin.concurrent.thread;
 import kotlin.coroutines.EmptyCoroutineContext
 
 // READ MORE: https://reflectoring.io/understanding-kotlin-coroutines-tutorial/
+// using fun main(...) = runBlocking { ... } to block the currently executing main thread,
+// until all the code in the coroutine is completed.
 fun main(args: Array<String>) = runBlocking {
     // old threading approach
     /*
     println("My program runs...: ${Thread.currentThread().name}")
     thread {
-        longRunningTask()
+        longRunningTaskThreading()
     }
-    println("My program ends...: ${Thread.currentThread().name}")*/
+    println("My program ends...: ${Thread.currentThread().name}")
+    */
 
     // coroutine approach
-    /*println("My program runs...: ${Thread.currentThread().name}")
+    /*
+    println("My program runs...: ${Thread.currentThread().name}")
 
     // starting a coroutine
     launch {
-        longRunningTask() // invoking long running task
+        longRunningTaskCoroutine() // invoking long running task
     }
     println("My program ends...: ${Thread.currentThread().name}")
     */
@@ -70,7 +74,7 @@ fun main(args: Array<String>) = runBlocking {
 
 // old threading approach
 /*
-fun longRunningTask() {
+fun longRunningTaskThreading() {
     println("executing longRunningTask on... ${Thread.currentThread().name}")
     Thread.sleep(1000)
     println("longRunningTask ends on thread ...: ${Thread.currentThread().name}")
@@ -78,7 +82,7 @@ fun longRunningTask() {
 
 // Coroutine approach
 
-suspend fun longRunningTask() {
+suspend fun longRunningTaskCoroutine() {
     println("executing longRunningTask on... ${Thread.currentThread().name}")
     delay(1000)
     println("longRunningTask ends on thread ...: ${Thread.currentThread().name}")
